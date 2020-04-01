@@ -6,9 +6,12 @@ intents:
 - greet
 - goodbye
 - thankyou
+- check_balance
+- search_transactions
 
 entities:
 - PERSON
+- vendor_name
 
 slots:
   PERSON:
