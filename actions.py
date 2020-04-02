@@ -40,13 +40,13 @@ class PayCCForm(CustomFormAction):
     def name(self) -> Text:
         """Unique identifier of the form"""
 
-        return ""
+        return "cc_payment_form"
 
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return []
+        return ["credit_card","payment_amount","time","confirm"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -63,6 +63,9 @@ class PayCCForm(CustomFormAction):
                 self.from_entity(entity="number"),
             ],
             "time": [self.from_entity(entity="time")],
+            confirm: [
+                self.from_intent
+            ]
             
         }
 
@@ -159,9 +162,11 @@ class PayCCForm(CustomFormAction):
             after all required slots are filled"""
 
         # utter submit template
-        if 
+        if tracker.get_slot("confirm"):
+            dispatcher.utter_message(template="utter_cc_pay_scheduled")
 
         else:
+            dispatcher.utter_message(template="utter_cc_pay_cancelled")
             
         return [AllSlotsReset()]
 
@@ -403,20 +408,23 @@ class TransferForm(CustomFormAction):
 
 class ActionAccountBalance(Action):
     def name(self):
-        return ""
+        return "action_account_balance"
 
     def run(self, dispatcher, tracker, domain):
         init_account_balance = int(tracker.get_slot("account_balance"))
-        amount = 
+        amount = tracker.get_slot("amount_transferred")
         if amount:
             amount = int(tracker.get_slot("amount_transferred"))
-            account_balance = 
+            account_balance = init_account_balance- amount
             dispatcher.utter_message(
+                template= "utter_changed_account_balance",
+                init_account_balance=init_account_balance,
+                account_balance=account_balance
 
             )
             return [
-                SlotSet(),
-                SlotSet(),
+                SlotSet("account_balance",account_balance),
+                SlotSet("amount_transferred",None),
             ]
         else:
             dispatcher.utter_message(
