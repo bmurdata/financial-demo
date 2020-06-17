@@ -40,7 +40,7 @@
 - how much was deposited in my account in the last two weeks?
 - check deposits for last week
 - total deposits over last year
-- how much was deposited in January 
+- how much was deposited in January
 
 ## intent:deny
 - not really
@@ -66,6 +66,9 @@
 - hey
 - good evening
 - hello
+- Good morning sunshine the earth says hello!
+- Good moring sunshine, the earth says hello
+- Hello!
 
 ## intent:inform
 - $10
@@ -175,6 +178,7 @@
 - can I look at past transactions
 - I want to search my transactions with [amazon](vendor_name)
 - can i seem my transactions with [target](vendor_name)
+- I want to know how much I spent at [Starbucks](vendor_name) last week.
 
 ## intent:thankyou
 - thank you goodbye

@@ -1,5 +1,5 @@
 session_config:
-  session_expiration_time: 0.0
+  session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
 - transfer_money:
@@ -122,34 +122,70 @@ responses:
   - text: ok
   utter_ask_continue:
   - text: Would you like to continue?
-  utter_default:
-  - text: Sorry, I didn't get that. Could you rephrase?
   utter_ask_cc_payment_form_confirm:
-  - text: 'Would you like to schedule a payment of ${payment_amount}{payment_amount_type}
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    text: 'Would you like to schedule a payment of ${payment_amount}{payment_amount_type}
       towards your {credit_card} account for {time}?'
-    buttons:
-    - title: Yes
-      payload: /affirm
-    - title: No, cancel the transaction
-      payload: /deny
   utter_ask_transfer_form_confirm:
-  - text: 'Would you like to transfer ${amount-of-money} to {PERSON}?'
-    buttons:
-    - title: Yes
-      payload: /affirm
-    - title: No, cancel the transaction
-      payload: /deny
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    text: 'Would you like to transfer ${amount-of-money} to {PERSON}?'
   utter_transfer_cancelled:
   - text: Transfer cancelled
   utter_cc_pay_cancelled:
   - text: Credit card account payment cancelled
   utter_account_balance:
-  - text: "Your balance is ${init_account_balance}"
+  - text: 'Your balance is ${init_account_balance}'
   utter_changed_account_balance:
-  - text: "Your balance was ${init_account_balance} and is now ${account_balance} after the transfer"
+  - text: 'Your balance was ${init_account_balance} and is now ${account_balance}
+      after the transfer'
+  utter_default:
+  - text: "Please rephrase. If you tried to use a form, the server may not be able\
+      \ to handle it. Sorry! \nSay hello, goodbye, or transfer money or variants for\
+      \ best results."
 actions:
 - action_account_balance
-
+- utter_ask_transfer_form_amount-of-money
+- utter_ask_transfer_form_PERSON
+- utter_goodbye
+- utter_greet
+- utter_noworries
+- utter_transfer_complete
+- utter_transfer_charge
+- utter_ask_cc_payment_form_payment_amount
+- utter_ask_cc_payment_form_credit_card
+- utter_ask_cc_payment_form_time
+- utter_ask_transact_search_form_vendor_name
+- utter_ask_transact_search_form_time
+- utter_no_payment_amount
+- utter_no_paymentdate
+- utter_no_creditcard
+- utter_no_vendor_name
+- utter_no_transactdate
+- utter_cc_pay_scheduled
+- utter_searching_spend_transactions
+- utter_found_spend_transactions
+- utter_searching_deposit_transactions
+- utter_found_deposit_transactions
+- utter_ask_rephrase
+- utter_ask_switch_goal
+- utter_ask_back_to_transact
+- utter_ok
+- utter_ask_continue
+- utter_default
+- utter_ask_cc_payment_form_confirm
+- utter_ask_transfer_form_confirm
+- utter_transfer_cancelled
+- utter_cc_pay_cancelled
+- utter_account_balance
+- utter_changed_account_balance
 forms:
 - cc_payment_form
 - transfer_form
