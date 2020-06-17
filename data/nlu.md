@@ -61,6 +61,7 @@
 - quit
 - stop
 - bye
+- abort
 
 ## intent:greet
 - good morning
@@ -163,6 +164,8 @@
 - I want to pay $500 on my [gringotts](credit_card) credit card on Sunday
 - I want to pay my [current balance](payment_amount) on my [gringotts](credit_card) credit card today
 - i need to pay off my [gringots](credit_card) credit card
+- need to pay credit card
+- I want to do things
 
 ## intent:search_transactions
 - how much did I spend at [Target](vendor_name) this week?
@@ -206,6 +209,7 @@
 - transfer money
 - I want to transfer $100 to John
 - i want to transfer $400 to Akela
+- I want to send money
 
 ## intent:check_recipients
 - Who can I send money to?
