@@ -1,6 +1,7 @@
 ## greet/bye path
 * greet
   - utter_greet
+  - utter_notice
 
 ## say goodbye
 * goodbye

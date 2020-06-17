@@ -150,6 +150,9 @@ responses:
   - text: "Please rephrase. If you tried to use a form, the server may not be able\
       \ to handle it. Sorry! \nSay hello, goodbye, or transfer money or variants for\
       \ best results."
+  utter_notice:
+  - text: I am a simple demo! I can greet, say goodbye, and accept the phrase transfer
+      money. That's about it. Sorry!
 actions:
 - action_account_balance
 - utter_ask_transfer_form_amount-of-money
@@ -186,6 +189,7 @@ actions:
 - utter_cc_pay_cancelled
 - utter_account_balance
 - utter_changed_account_balance
+- utter_notice
 forms:
 - cc_payment_form
 - transfer_form

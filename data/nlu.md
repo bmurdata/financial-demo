@@ -50,6 +50,7 @@
 - no way
 - nope
 - no thanks
+- Nope!
 
 ## intent:goodbye
 - see you later
@@ -205,3 +206,4 @@
 - pay my friend
 - transfer money
 - I want to transfer to someone [name](PERSON)
+- John
