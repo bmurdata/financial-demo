@@ -200,3 +200,4 @@
 - I want to pay Bill
 - pay my friend
 - transfer money
+- I want to transfer to someone [name](PERSON)
